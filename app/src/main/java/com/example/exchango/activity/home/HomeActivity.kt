@@ -31,6 +31,7 @@ class HomeActivity : ComponentActivity() , UserProfileAdapter.OnItemClickListene
     private lateinit var userProfileAdapter: UserProfileAdapter
     private lateinit var binding: ActivityHomeBinding
     private lateinit var userList: List<Profile>
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,6 +42,7 @@ class HomeActivity : ComponentActivity() , UserProfileAdapter.OnItemClickListene
 
         recyclerView = binding.recyclerViewHomepg
         recyclerView.layoutManager = LinearLayoutManager(this)
+        searchView=binding.searchView
 
         userList = listOf(
             Profile("John Doe"),
