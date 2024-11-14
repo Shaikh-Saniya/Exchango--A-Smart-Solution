@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary">
+<LinearLayout
+    android:id="@+id/outerLinearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/colorPrimary"
+    android:orientation="horizontal"
+    android:paddingBottom="15dp"
+    android:paddingTop="15dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/contactName"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Shaikh Amiruddin Husnuddin Jamaluddin"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/zen_antique" />
+
+        <TextView
+            android:id="@+id/contactNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91 9082853372"
+            android:textColor="?attr/colorOnPrimary"
+            android:textSize="15sp"
+            android:fontFamily="@font/zen_antique"
+            android:layout_marginTop="7dp"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textInvite"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="25dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/zen_antique"
+        android:gravity="center"
+        android:linksClickable="true"
+        android:text="Invite"
+        android:textColor="?attr/colorSecondary"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="TouchTargetSizeCheck" />
+
+</LinearLayout>
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/outerLinearLayout"
+        android:background="#EDE9E9">
+
+    </com.google.android.material.divider.MaterialDivider>
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ParentLayout"
+    android:background="?attr/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.userprofile.Profile">
+    <ImageButton
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/all_button_round_btn_normal"
+        android:contentDescription="@string/appbar_scrolling_view_behavior"
+        android:src="@drawable/userprofile_ic_back_arrow_black_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zen_antique"
+        android:gravity="center"
+        android:text="Profile"
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/profileImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/ParentLayout"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profileImage"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="44dp"
+        android:background="@color/medium_light_gray"
+        android:src="@drawable/userprofile_ic_person_gray_10"
+        app:layout_constraintBottom_toTopOf="@+id/nameEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="349dp"
+        android:layout_marginBottom="7dp"
+        android:background="@drawable/userprofile_edittext_curved_bg_gray_normal"
+        android:fontFamily="@font/zen_antique"
+        android:gravity="center"
+        android:hint="Name"
+        android:singleLine="true"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/bioEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/PhoneEditText"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/userprofile_edittext_curved_bg_gray_normal"
+        android:fontFamily="@font/zen_antique"
+        android:gravity="center"
+        android:hint="Number"
+        android:singleLine="true"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/saveButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bioEditText" />
+
+    <EditText
+        android:id="@+id/bioEditText"
+        android:layout_width="360dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="11dp"
+        android:background="@drawable/userprofile_edittext_curved_bg_gray_normal"
+        android:fontFamily="@font/zen_antique"
+        android:gravity="center"
+        android:hint="Bio"
+        android:singleLine="false"
+        android:textColor="@color/gray"
+        android:textColorHint="@color/gray"
+
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/PhoneEditText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameEditText" />
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="42dp"
+        android:background="@drawable/all_button_curved_btn_normal"
+        android:fontFamily="@font/zen_antique"
+        android:text="Save Changes"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="19dp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PhoneEditText"
+        app:layout_constraintVertical_bias="0.625" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

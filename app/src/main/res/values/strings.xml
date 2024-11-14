@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Exchango</string>
+    <string name="enter_6_digit_code">Enter 6 digit code</string>
+    <string name="Hello">Hello</string>
+    <string name="John">John</string>
+    <string name="todo">to_do</string>
+</resources>

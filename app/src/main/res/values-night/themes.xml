@@ -1,0 +1,9 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Exchango" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorOnPrimary">@color/offwhite</item>
+        <item name="colorSecondary">@color/mediumslateblue</item>
+        <item name="colorOnSecondary">@color/on_dark_secondary</item>
+    </style>
+</resources>
