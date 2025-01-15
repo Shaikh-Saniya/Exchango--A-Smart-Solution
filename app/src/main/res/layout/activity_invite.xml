@@ -54,7 +54,7 @@
         android:layout_width="80dp"
         android:layout_height="40dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/all_button_curved_btn_normal"
+        android:background="@drawable/all_button_curved_mslateblue_normal_"
         android:fontFamily="@font/zen_antique"
         android:gravity="center"
         android:text="Skip"

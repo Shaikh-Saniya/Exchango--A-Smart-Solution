@@ -22,8 +22,8 @@
         android:id="@+id/welcomeMSG"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="464dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="436dp"
         android:fontFamily="@font/poppins_light"
         android:lineHeight="27dp"
         android:lineSpacingExtra="@dimen/cardview_default_radius"
@@ -34,19 +34,37 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/joinUsButton"
+        android:id="@+id/signIn"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:background="@drawable/all_button_curved_btn_normal"
+        android:background="@drawable/all_button_curved_mslateblue_normal_"
         android:fontFamily="@font/nunito_sans_bold"
-        android:text="Join Us "
-        android:textSize="18dp"
+        android:text="Already have an existing account ?"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/rive_view"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintVertical_bias="0.838" />
+
+    <Button
+        android:id="@+id/signUp"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:background="@drawable/all_button_curved_outline"
+        android:backgroundTint="#E1E0FF"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="Dont have an account "
+        android:textAllCaps="false"
+        android:textColor="?attr/colorSecondary"
+        android:textSize="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/rive_view"
+        app:layout_constraintVertical_bias="0.93" />
 </androidx.constraintlayout.widget.ConstraintLayout>

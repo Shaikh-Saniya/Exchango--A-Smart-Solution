@@ -84,7 +84,7 @@ class InviteActivity : AppCompatActivity() {
     }
 
     private fun loadContacts() {
-        pager = Pager(PagingConfig(pageSize = 20)) { ContactsPagingSource(contentResolver) }
+        pager = Pager(PagingConfig(pageSize = 2)) { ContactsPagingSource(contentResolver) }
 
         lifecycleScope.launch {
             pager.flow.collectLatest { pagingData ->

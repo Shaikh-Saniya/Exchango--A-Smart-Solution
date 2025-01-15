@@ -7,12 +7,10 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.exchango.activity.userprofile.NumberInput
 import com.example.exchango.R
 import com.example.exchango.databinding.ActivityWelcomeBinding
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.exchango.activity.invite.InviteActivity
-import com.example.exchango.activity.userprofile.EmailAuthScreen
+import com.example.exchango.activity.userprofile.SignIn
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -36,9 +34,14 @@ class WelcomeActivity : AppCompatActivity() {
         val riveAnimationView = welcome.riveView
         riveAnimationView.play()
 
-        welcome.joinUsButton.setOnClickListener {
+        welcome.signUp.setOnClickListener {
             Log.d("check","joinUsButton clicked")
-            val intent = Intent(this@WelcomeActivity,EmailAuthScreen::class.java)
+            val intent = Intent(this@WelcomeActivity,SignIn::class.java)
+            startActivity(intent)
+        }
+        welcome.signIn.setOnClickListener {
+            Log.d("check","joinUsButton clicked")
+            val intent = Intent(this@WelcomeActivity,SignIn::class.java)
             startActivity(intent)
         }
     }

@@ -3,21 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ParentLayout"
-    android:background="?attr/colorPrimary"
+    android:layout_marginStart="15dp"
+    android:layout_marginEnd="15dp"
+    android:background="?attr/colorOnPrimary"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.userprofile.Profile">
-    <ImageButton
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/all_button_round_btn_normal"
-        android:contentDescription="@string/appbar_scrolling_view_behavior"
-        android:src="@drawable/userprofile_ic_back_arrow_black_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.108"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
@@ -25,28 +16,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/zen_antique"
-        android:gravity="center"
+        android:gravity="start"
         android:text="Profile"
         android:textColor="?attr/colorOnPrimary"
-        android:textSize="28dp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/profileImage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/ParentLayout"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintVertical_bias="0.484" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
+    <ImageView
         android:id="@+id/profileImage"
         android:layout_width="180dp"
         android:layout_height="180dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="104dp"
         android:background="@color/medium_light_gray"
         android:src="@drawable/userprofile_ic_person_gray_10"
         app:layout_constraintBottom_toTopOf="@+id/nameEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/nameEditText"
@@ -64,7 +57,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/bioEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.392"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -114,7 +107,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_marginBottom="42dp"
-        android:background="@drawable/all_button_curved_btn_normal"
+        android:background="@drawable/all_button_curved_mslateblue_normal_"
         android:fontFamily="@font/zen_antique"
         android:text="Save Changes"
         android:textColor="?attr/colorPrimary"
