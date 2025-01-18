@@ -22,7 +22,14 @@
         android:theme="@style/Theme.Exchango"
         tools:targetApi="31">
         <activity
-            android:name=".activity.userprofile.SignIn"
+            android:name=".activity.userprofile.EmailLogIn"
+            android:exported="false" />
+        <activity
+            android:name=".activity.userprofile.EmailSignIn"
+            android:exported="false"
+            android:theme="@style/Theme.Exchango" />
+        <activity
+            android:name=".activity.userprofile.login_with_email_"
             android:exported="false"
             android:theme="@style/Theme.Exchango" />
         <activity
@@ -42,9 +49,6 @@
             android:exported="false" />
         <activity
             android:name=".activity.userprofile.NumberInput"
-            android:exported="false" />
-        <activity
-            android:name=".activity.userprofile.SignIn"
             android:exported="false" />
         <activity
             android:name=".activity.main.WelcomeActivity"

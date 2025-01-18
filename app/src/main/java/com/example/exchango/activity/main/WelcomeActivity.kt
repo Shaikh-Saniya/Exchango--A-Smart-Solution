@@ -10,7 +10,6 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.exchango.R
 import com.example.exchango.databinding.ActivityWelcomeBinding
 import androidx.appcompat.app.AppCompatDelegate
-import com.example.exchango.activity.userprofile.SignIn
 
 class WelcomeActivity : AppCompatActivity() {
 
@@ -36,12 +35,12 @@ class WelcomeActivity : AppCompatActivity() {
 
         welcome.signUp.setOnClickListener {
             Log.d("check","joinUsButton clicked")
-            val intent = Intent(this@WelcomeActivity,SignIn::class.java)
+            val intent = Intent(this@WelcomeActivity,login_with_email_::class.java)
             startActivity(intent)
         }
         welcome.signIn.setOnClickListener {
             Log.d("check","joinUsButton clicked")
-            val intent = Intent(this@WelcomeActivity,SignIn::class.java)
+            val intent = Intent(this@WelcomeActivity,login_with_email_::class.java)
             startActivity(intent)
         }
     }

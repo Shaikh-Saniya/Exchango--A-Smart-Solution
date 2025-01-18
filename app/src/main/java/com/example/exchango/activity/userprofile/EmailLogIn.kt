@@ -1,44 +1,39 @@
 package com.example.exchango.activity.userprofile
 
-import android.content.Intent
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
+import android.os.Handler
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.exchango.R
-import com.example.exchango.activity.invite.InviteActivity
-import com.example.exchango.databinding.ActivityEmailAuthScreenBinding
+import com.example.exchango.databinding.ActivityEmailLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import android.os.Handler
-import androidx.activity.enableEdgeToEdge
 import kotlin.random.Random
 
-class SignIn : AppCompatActivity() {
+class EmailLogIn : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding: ActivityEmailAuthScreenBinding
+    private lateinit var binding:ActivityEmailLogInBinding
     private lateinit var handler: Handler
     private lateinit var db: FirebaseFirestore
     private  var emailVerified: Int=0
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()  // Ensure the activity theme supports edge-to-edge display
-        Log.d("EmailAuthScreen", "Entered the activity")
 
-        binding = ActivityEmailAuthScreenBinding.inflate(layoutInflater)
+        binding = ActivityEmailLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
 
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
@@ -122,7 +117,7 @@ class SignIn : AppCompatActivity() {
                     signUpUser(email)
                     emailVerified=1
                 } else {
-                   emailVerified=0
+                    emailVerified=0
                 }
             } else {
                 Toast.makeText(this, "Document fetch failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()

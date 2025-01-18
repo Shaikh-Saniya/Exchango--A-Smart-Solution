@@ -5,16 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorOnSecondary"
-    tools:context=".activity.userprofile.SignIn">
-
+    android:background="?attr/colorPrimary"
+    tools:context=".activity.userprofile.EmailLogIn">
 
     <ImageButton
         android:id="@+id/backButton"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/all_button_round_btn_normal"
         android:contentDescription="@string/appbar_scrolling_view_behavior"
         android:src="@drawable/userprofile_ic_back_arrow_black_24"
@@ -27,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:fontFamily="@font/zen_antique"
         android:text="Authentication"
         android:textColor="@color/black"
@@ -44,7 +43,7 @@
         android:id="@+id/materialDivider"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="55dp"
         app:dividerColor="@color/light_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -66,6 +65,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.934" />
+
+
 
     <EditText
         android:id="@+id/emailText"
