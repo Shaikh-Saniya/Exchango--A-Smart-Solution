@@ -1,5 +1,6 @@
-package com.example.exchango.activity.userprofile
+package com.example.exchango.activity.Authentication
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
@@ -8,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.exchango.R
+import com.example.exchango.activity.invite.InviteActivity
+import com.example.exchango.activity.userprofile.Profile
 import com.example.exchango.databinding.ActivityEmailLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -37,16 +40,16 @@ class EmailLogIn : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
-
-        binding.verifyBtn.setOnClickListener {
-            val emailText = binding.emailText.text.trim().toString()
-            if (TextUtils.isEmpty(emailText)) {
-                binding.emailText.error = "Email is required"
-            } else {
-                checkUserDocument(emailText)
-            }
-        }
-
+//
+//        binding.verifyBtn.setOnClickListener {
+//            val emailText = binding.emailText.text.trim().toString()
+//            if (TextUtils.isEmpty(emailText)) {
+//                binding.emailText.error = "Email is required"
+//            } else {
+//                checkUserDocument(emailText)
+//            }
+//        }
+//
         binding.nextBtn.setOnClickListener{
             if(emailVerified==1){
                 startActivity(Intent(this, InviteActivity::class.java))
@@ -56,7 +59,7 @@ class EmailLogIn : AppCompatActivity() {
                 finish()
             }
         }
-    }
+   }
 
     private fun signUpUser(email: String) {
         // Generate a random password

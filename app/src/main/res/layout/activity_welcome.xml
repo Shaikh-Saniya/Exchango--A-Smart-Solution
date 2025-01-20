@@ -33,22 +33,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/signIn"
         android:layout_width="350dp"
-        android:layout_height="50dp"
-        android:background="@drawable/all_button_curved_mslateblue_normal_"
-        android:fontFamily="@font/nunito_sans_bold"
-        android:text="Already have an existing account ?"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/rive_view"
-        app:layout_constraintVertical_bias="0.838" />
+        android:layout_height="55dp"
+        android:gravity="center"
+        android:elevation="100dp"
+    android:background="@drawable/all_button_curved_mslateblue_normal_"
+    android:fontFamily="@font/nunito_sans_bold"
+    android:text="@string/already_have_an_existing_account"
+    android:textAllCaps="false"
+    android:textColor="@color/white"
+    android:textSize="16sp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.491"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="@+id/rive_view"
+    app:layout_constraintVertical_bias="0.838" />
 
     <Button
         android:id="@+id/signUp"

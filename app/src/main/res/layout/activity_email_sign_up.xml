@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.934" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_edit_text"
+        android:id="@+id/email_tf_ly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxWidth="100dp"
@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_edit_text_"
+            android:id="@+id/email_tf_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxWidth="100dp"
@@ -107,7 +107,45 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_edit_text_lyt"
+        android:id="@+id/confirmPass_tf_lyt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="270dp"
+        android:hint="Confirm Password"
+        app:hintTextColor="?attr/colorSecondary"
+        app:startIconDrawable="@drawable/ic_lock_medium_slate_blue_24"
+        app:endIconMode="password_toggle"
+        app:helperText="Required Field*"
+        app:helperTextTextColor="@color/dark_red"
+        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxBackgroundMode="outline"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        android:maxWidth="400dp"
+        app:hintEnabled="true"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:layout_constraintBottom_toTopOf="@+id/nextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirmpass_tf_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/black" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/password_tf_lyt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -136,12 +174,28 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_edit_text"
+            android:id="@+id/password_tf_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
             android:textColor="@android:color/black" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/helperText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/zen_antique"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="CLick on the Bottom Button to verify ur details "
+        android:textColor="?attr/colorOnPrimary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/nextBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirmPass_tf_lyt"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
