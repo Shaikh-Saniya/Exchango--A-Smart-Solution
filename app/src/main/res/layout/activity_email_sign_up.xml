@@ -29,7 +29,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/zen_antique"
         android:text="Authentication"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,10 +77,10 @@
         app:endIconMode="clear_text"
         app:helperText="Required Field*"
         app:helperTextTextColor="@color/dark_red"
-        app:endIconTint="?attr/colorSecondary"
+        app:endIconTint="?attr/colorOnPrimary"
         android:hint="@string/enter_email_id"
         app:hintTextColor="?attr/colorSecondary"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -102,7 +102,7 @@
             android:layout_height="wrap_content"
             android:maxWidth="100dp"
             android:layout_weight="1"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,7 +119,7 @@
         app:endIconMode="password_toggle"
         app:helperText="Required Field*"
         app:helperTextTextColor="@color/dark_red"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -140,7 +140,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -150,14 +150,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="175dp"
         android:hint="Enter Password"
         app:hintTextColor="?attr/colorSecondary"
         app:startIconDrawable="@drawable/icon_password_medium_slate_blue_24"
         app:endIconMode="password_toggle"
         app:helperText="Required Field*"
         app:helperTextTextColor="@color/dark_red"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -178,7 +178,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -1,28 +1,35 @@
 package com.example.exchango.activity.Authentication
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
+import android.util.TypedValue
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.exchango.R
 import com.example.exchango.activity.invite.InviteActivity
 import com.example.exchango.activity.userprofile.Profile
 import com.example.exchango.databinding.ActivityEmailLogInBinding
+import com.google.android.material.R.attr.colorOnPrimary
+import com.google.android.material.R.attr.colorSecondary
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import www.sanju.motiontoast.MotionToast
+import www.sanju.motiontoast.MotionToastStyle
 import kotlin.random.Random
 
 class EmailLogIn : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private lateinit var binding:ActivityEmailLogInBinding
-    private lateinit var handler: Handler
-    private lateinit var db: FirebaseFirestore
-    private  var emailVerified: Int=0
+    private lateinit var binding: ActivityEmailLogInBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -36,97 +43,66 @@ class EmailLogIn : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        auth=FirebaseAuth.getInstance()
 
-
-        db = FirebaseFirestore.getInstance()
-        auth = FirebaseAuth.getInstance()
-//
-//        binding.verifyBtn.setOnClickListener {
-//            val emailText = binding.emailText.text.trim().toString()
-//            if (TextUtils.isEmpty(emailText)) {
-//                binding.emailText.error = "Email is required"
-//            } else {
-//                checkUserDocument(emailText)
-//            }
-//        }
-//
-        binding.nextBtn.setOnClickListener{
-            if(emailVerified==1){
-                startActivity(Intent(this, InviteActivity::class.java))
-                finish()
-            }else{
-                startActivity(Intent(this, Profile::class.java))
-                finish()
-            }
+        binding.backButton.setOnClickListener {
+            finish()
         }
-   }
+        
+        binding.nextBtn.setOnClickListener {
+            val email= binding.emailTfTxt.text.toString().trim()
+            Log.d("auth",email)
+            val password= binding.passwordTfTxt.text.toString().trim()
+            Log.d("auth",password)
+            userLogin(email, password)
+        }
+    }
 
-    private fun signUpUser(email: String) {
-        // Generate a random password
-        val randomPassword = Random.nextInt(1000000000, 9999999999.toInt())
-        auth.createUserWithEmailAndPassword(email, randomPassword.toString())
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    val user = auth.currentUser!!
-                    user.sendEmailVerification().addOnCompleteListener { verificationTask ->
-                        if (verificationTask.isSuccessful) {
-                            Toast.makeText(
-                                this,
-                                "Verification email sent to ${user.email}. Please verify your email from the provided link.",
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                        } else {
-                            Toast.makeText(
-                                this,
-                                "Failed to send verification email: ${verificationTask.exception?.message}",
-                                Toast.LENGTH_SHORT
-                            ).show()
+    private fun userLogin(email: String, password: String) {
+        binding.emailTfLyt.error=null
+        binding.passwordTfLyt.error=null
+        if(! email.isNullOrEmpty() && ! password.isNullOrEmpty()){
+            auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task->
+                if(task .isSuccessful){
+                    val user=auth.currentUser
+                    if (user != null) {
+                        if(user.isEmailVerified){
+                            motionToast("Credentials Verified",MotionToastStyle.SUCCESS)
+                            startActivity(Intent(this, Profile::class.java))
+                            finish()
+                        }else{
+                            motionToast("User not found",MotionToastStyle.ERROR)
                         }
                     }
-                } else {
-                    Toast.makeText(
-                        this,
-                        "Sign-up failed: ${task.exception?.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                }else{
+                    val errMsg=task.exception?.message
+                    motionToast("$errMsg",MotionToastStyle.ERROR)
                 }
             }
-    }
-
-//    private fun startVerificationCheckLoop(user: FirebaseUser) {
-//        handler = Handler(Looper.getMainLooper())
-//        handler.postDelayed(object : Runnable {
-//            override fun run() {
-//                user.reload().addOnCompleteListener { task ->
-//                    if (task.isSuccessful && user.isEmailVerified) {
-//                        Toast.makeText(this@EmailAuthScreen, "Email verified!", Toast.LENGTH_SHORT).show()
-//                        navigateToNextActivity()
-//                        handler.removeCallbacks(this)  // Stop the loop
-//                    } else {
-//                        handler.postDelayed(this, 5000)  // Check again in 5 seconds
-//                    }
-//                }
-//            }
-//        }, 5000)
-//    }
-
-
-    private fun checkUserDocument(email: String) {
-        auth.fetchSignInMethodsForEmail(email).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                val signInMethods = task.result?.signInMethods
-                if (signInMethods.isNullOrEmpty()) {
-                    signUpUser(email)
-                    emailVerified=1
-                } else {
-                    emailVerified=0
-                }
-            } else {
-                Toast.makeText(this, "Document fetch failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+        }else{
+            if(email.isEmpty()&& password.isNotEmpty()){
+                binding.emailTfLyt.error="Email cannot be empty"
+                motionToast("Enter Email in the box",MotionToastStyle.ERROR)
+            }else if(email.isNotEmpty() &&password.isEmpty()){
+                binding.passwordTfLyt.error="Password cannot be empty"
+                motionToast("Enter Password in the box",MotionToastStyle.ERROR)
+            }else{
+                motionToast("Enter the credentials in the boxes",MotionToastStyle.ERROR)
             }
-        }.addOnFailureListener { e ->
-            Toast.makeText(this, "Document fetch failed: ${e.message}", Toast.LENGTH_LONG).show()
         }
     }
+
+    private fun motionToast (msg:String,msgType:MotionToastStyle){
+        MotionToast.createToast(
+            this,
+            "Authentication Failed",
+            msg,
+            msgType,
+            MotionToast.GRAVITY_BOTTOM,
+            MotionToast.LONG_DURATION,
+            ResourcesCompat.getFont(this,R.font.zen_antique)
+        )
+    }
+
+
 }

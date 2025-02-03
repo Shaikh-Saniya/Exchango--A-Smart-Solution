@@ -1,5 +1,6 @@
 package com.example.exchango.activity.Authentication
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.enableEdgeToEdge
@@ -8,6 +9,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.exchango.R
+import com.example.exchango.activity.userprofile.Profile
 import com.example.exchango.databinding.ActivityEmailSignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import www.sanju.motiontoast.MotionToast
@@ -51,19 +53,21 @@ class EmailSignUp : AppCompatActivity() {
                         user?.sendEmailVerification()?.addOnCompleteListener(this){ task ->
                             if(task.isSuccessful){
                                 motionToast("Check ur email box and click on the link to verify ur details",MotionToastStyle.INFO)
+                                startActivity(Intent(this, Profile::class.java))
+                                finish()
                             }else{
                                 val errorMessage= task.exception?.message
                                 if (errorMessage != null) {
                                     when{
-                                        errorMessage.contains("This email address is badly formated ")==true->{
+                                        errorMessage.contains("This email address is badly formated") ->{
                                             binding.emailTfLy.error="Email is badly formated"
                                             motionToast("Email address is missing some characters or is incorrectly formatted",MotionToastStyle.ERROR)
                                         }
-                                        errorMessage.contains("The email address is already in use")==true->{
+                                        errorMessage.contains("The email address is already in use") ->{
                                             binding.emailTfLy.error="This email is in use "
                                             motionToast("This Email Address is already in use Login or try with another email address",MotionToastStyle.ERROR)
                                         }
-                                        errorMessage.contains("A network error (such as timeout,interupted connection or unreachable)")==true->{
+                                        errorMessage.contains("A network error (such as timeout,interupted connection or unreachable)") ->{
                                             motionToast("No Internet (Check ur internet connection)",MotionToastStyle.ERROR)
                                         }
                                         else->{
@@ -98,24 +102,24 @@ class EmailSignUp : AppCompatActivity() {
             }
         } else {
             if (email.isNullOrEmpty()) {
-                binding.confirmPassTfLyt.error="Invalid Confrim Password"
+                binding.emailTfLy.error="Email cannot be empty"
                 motionToast("Enter the email in the box", MotionToastStyle.ERROR)
-            }else if (password.isNullOrEmpty()) {
-                binding.confirmPassTfLyt.error="Password cannot be empty"
+            }
+            if (password.isNullOrEmpty()) {
+                binding.passwordTfLyt.error="Password cannot be empty"
                 motionToast("Enter the password in the box", MotionToastStyle.ERROR)
-            } else if (confirmPassword.isNullOrEmpty()) {
+            }
+            if (confirmPassword.isNullOrEmpty()) {
                 binding.confirmPassTfLyt.error="Confirm Password cannotbe empty"
                 motionToast("Enter the password in the confirm password box", MotionToastStyle.ERROR)
-            }else{
-                motionToast("Enter the credentials in the boxes", MotionToastStyle.ERROR)
             }
         }
     }
     private fun motionToast(msg: String, msgType: MotionToastStyle) {
         MotionToast.createToast(
             this,
+            "Authentication Error" ,
             msg,
-            "Unknown error",
             msgType,
             MotionToast.GRAVITY_BOTTOM,
             MotionToast.LONG_DURATION,

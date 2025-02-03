@@ -52,7 +52,9 @@ dependencies {
     implementation ("androidx.paging:paging-runtime:3.3.2")
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.firebase.storage.ktx)
     testImplementation(libs.junit)
+    implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("app.rive:rive-android:8.7.0")
@@ -68,4 +70,7 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation(libs.motiontoast)
+    implementation (libs.sdp.android)
+    implementation("com.github.chrisbanes:PhotoView:2.3.0")
+
 }

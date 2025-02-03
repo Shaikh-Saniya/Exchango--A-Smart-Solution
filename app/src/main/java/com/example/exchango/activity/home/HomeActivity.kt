@@ -75,7 +75,7 @@ class HomeActivity : ComponentActivity() , UserProfileAdapter.OnItemClickListene
         val db = Firebase.firestore
         val userId = FirebaseAuth.getInstance().currentUser?.email ?: return
 
-        db.collection("User Details").document(userId)
+        db.collection("User Profile").document(userId)
             .get()
             .addOnSuccessListener { document ->
                 val userName = document.data?.get("name")?.toString() ?: "User"

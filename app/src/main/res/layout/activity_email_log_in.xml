@@ -29,7 +29,7 @@
         android:layout_marginTop="15dp"
         android:fontFamily="@font/zen_antique"
         android:text="Authentication"
-        android:textColor="@color/black"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -67,7 +67,7 @@
         app:layout_constraintVertical_bias="0.934" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email_edit_text"
+        android:id="@+id/email_tf_lyt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxWidth="100dp"
@@ -77,10 +77,11 @@
         app:endIconMode="clear_text"
         app:helperText="Required Field*"
         app:helperTextTextColor="@color/dark_red"
-        app:endIconTint="?attr/colorSecondary"
+        app:endIconTint="?attr/colorOnPrimary"
         android:hint="@string/enter_email_id"
         app:hintTextColor="?attr/colorSecondary"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
+        app:boxStrokeWidthFocused="2dp"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -97,17 +98,19 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/email_edit_text_"
+            android:id="@+id/email_tf_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColorHint="?attr/colorSecondary"
             android:maxWidth="100dp"
             android:layout_weight="1"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password_edit_text_lyt"
+        android:id="@+id/password_tf_lyt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -119,7 +122,7 @@
         app:endIconMode="password_toggle"
         app:helperText="Required Field*"
         app:helperTextTextColor="@color/dark_red"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="20dp"
         app:boxCornerRadiusBottomStart="20dp"
@@ -136,11 +139,11 @@
         app:layout_constraintVertical_bias="0.0">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/password_edit_text"
+            android:id="@+id/password_tf_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

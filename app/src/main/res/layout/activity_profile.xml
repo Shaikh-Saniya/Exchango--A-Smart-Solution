@@ -55,20 +55,21 @@
         app:layout_constraintVertical_bias="0"
         tools:layout_editor_absoluteX="0dp" />
 
-    <ImageView
+
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profileImage"
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:padding="50dp"
+        android:padding="10dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/userprofile_profile_img_bg"
-        android:src="@drawable/userprofile_ic_person_gray_10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
+        android:id="@+id/setProfileImage"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:layout_marginBottom="10dp"
@@ -97,7 +98,7 @@
         app:endIconTint="?attr/colorSecondary"
         android:hint="Enter Name"
         app:hintTextColor="?attr/colorSecondary"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
@@ -119,7 +120,7 @@
             android:layout_height="wrap_content"
             android:maxWidth="100dp"
             android:layout_weight="1"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -134,7 +135,7 @@
         app:hintTextColor="?attr/colorSecondary"
         app:startIconDrawable="@drawable/ic_about_light_gray_24"
         app:endIconMode="clear_text"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
@@ -154,7 +155,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -166,10 +167,10 @@
         android:layout_marginEnd="20dp"
         android:layout_marginTop="15dp"
         android:hint="Phone Number"
-        app:hintTextColor="?attr/colorSecondary"
+        app:hintTextColor="@color/color_selector_authentication_tf"
         app:startIconDrawable="@drawable/ic_phone_light_gray_24"
         app:endIconMode="clear_text"
-        app:boxStrokeColor="?attr/colorSecondary"
+        app:boxStrokeColor="@color/color_selector_authentication_tf"
         app:boxBackgroundMode="outline"
         app:boxCornerRadiusBottomEnd="10dp"
         app:boxCornerRadiusBottomStart="10dp"
@@ -189,7 +190,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:textColor="@android:color/black" />
+            android:textColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
